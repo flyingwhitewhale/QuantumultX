@@ -18,7 +18,7 @@
  
   var message = ""
   const paras = ["ip","organization","isp","asn","asn_organization","country","region","city"]
-  const paran = ["IP","所有者","ISP","AS号","AS名称","国家","地区","城市"]
+  const paran = ["IP","机构","ISP","AS号","AS名称","国家","地区","城市"]
   $task.fetch(myRequest).then(response => {
     message = response? json2info(response.body,paras) : ""
       $done({"title":"🔎 IP.SB 查询结果","message":message});
