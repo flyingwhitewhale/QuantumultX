@@ -6,7 +6,7 @@
 
   **/
  
-  var url = "http://ip-api.com/json/?lang=zh-CN"
+  var url = "http://ip-api.com/json"
   var opts = {
       policy: $environment.params
   };
