@@ -56,7 +56,7 @@ var flags = new Map([[ "AC" , "🇦🇨" ] , [ "AF" , "🇦🇫" ] , [ "AI" , "�
 var body = $response.body;
 var obj = JSON.parse(body);
 var title =flags.get(obj['countryCode']) + ' '+ Owner_ValidCheck(obj['org']) + '@' + City_ValidCheck(obj['city']) ;
-var subtitle = ISP_ValidCheck(obj['isp']) + '|'+ AS_ValidCheck(obj['asname']);
+var subtitle = ISP_ValidCheck(obj['isp']) + '|'+ AS_ValidCheck(obj['as']);
 var ip = obj['query'];
 var description = 'IP:'+ obj['query'] + '\n' +'Owner:'+ obj['org'] + '\n' +'ISP:'+obj['isp'] + '\n'+'AS:'+ obj['as'] + '\n' +'Country:'+obj['country'] + '\n' +'Region:'+obj['regionName'] + '\n' +'City:'+obj['city'];
 $done({title, subtitle, ip, description});
