@@ -17,8 +17,8 @@
   };
  
   var message = ""
-  const paras = ["query","isp","as","country","regionName","city"]
-  const paran = ["IP","ISP","AS","国家","地区","城市"]
+  const paras = ["query","org","isp","as","country","regionName","city"]
+  const paran = ["IP","机构","ISP","AS","国家","地区","城市"]
   $task.fetch(myRequest).then(response => {
     message = response? json2info(response.body,paras) : ""
       $done({"title":"🔎 IP-API 查询结果","message":message});
