@@ -5,6 +5,7 @@ if ($response.statusCode != 200) {
 const emojis= ['🆘','🈲','⚠️','🔞','📵','🚦','🏖','🖥','📺','🐧','🐬','🦉','🍄','⛳️','🚴','🤑','👽','🤖','🎃', '👺', '👁', '🐶', '🐼','🐌', '👥']
 var city0 = "UNKNOWN";
 var isp0 = "UNKNOWN";
+var as0 = "UNKNOWN";
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -29,6 +30,16 @@ function ISP_ValidCheck(para) {
   }
 }
 
+function AS_ValidCheck(para) {
+  if(para) {
+  return para
+  } else
+  {
+  return as0
+//emojis[getRandomInt(emojis.length)]
+  }
+}
+
 function Area_check(para) {
   if(para=="中华民国"){
   return "台湾"
@@ -41,7 +52,7 @@ var flags = new Map([[ "AC" , "🇦🇨" ] , [ "AF" , "🇦🇫" ] , [ "AI" , "�
 var body = $response.body;
 var obj = JSON.parse(body);
 var title =flags.get(obj['countryCode']) + ' '+ City_ValidCheck(obj['city']);//+Area_check(obj['country']);
-var subtitle = ISP_ValidCheck(obj['org']);
+var subtitle = ISP_ValidCheck(obj['isp']) + ' '+ AS_ValidCheck(obj['as']);
 var ip = obj['query'];
 var description = 'IP:'+ obj['query'] + '\n' +'Owner:'+ obj['org'] + '\n' +'ISP:'+obj['isp'] + '\n'+'AS:'+ obj['as'] + '\n' +'Country:'+obj['country'] + '\n' +'Region:'+obj['regionName'] + '\n' +'City:'+obj['city'];
 $done({title, subtitle, ip, description});
