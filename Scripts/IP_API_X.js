@@ -3,8 +3,8 @@ if ($response.statusCode != 200) {
 }
 
 const emojis= ['🆘','🈲','⚠️','🔞','📵','🚦','🏖','🖥','📺','🐧','🐬','🦉','🍄','⛳️','🚴','🤑','👽','🤖','🎃', '👺', '👁', '🐶', '🐼','🐌', '👥']
-var city0 = "高谭市";
-var isp0 = "Cross-GFW.org";
+var city0 = "UNKNOWN";
+var isp0 = "UNKNOWN";
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -43,5 +43,5 @@ var obj = JSON.parse(body);
 var title =flags.get(obj['countryCode']) + ' '+ City_ValidCheck(obj['city']);//+Area_check(obj['country']);
 var subtitle = ISP_ValidCheck(obj['org']);
 var ip = obj['query'];
-var description = 'IP:'+ obj['query'] + '\n' +'机构:'+ obj['org'] + '\n' +'ISP:'+obj['isp'] + '\n'+'AS:'+ obj['as'];
+var description = 'IP:'+ obj['query'] + '\n' +'OWNER:'+ obj['org'] + '\n' +'ISP:'+obj['isp'] + '\n'+'AS:'+ obj['as']+'Country:'+obj['country'] + '\n'+'Region:'+obj['regionName'] + '\n'+'City:'+obj['city'];
 $done({title, subtitle, ip, description});
