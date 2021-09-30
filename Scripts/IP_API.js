@@ -3,10 +3,10 @@ if ($response.statusCode != 200) {
 }
 
 const emojis= ['🆘','🈲','⚠️','🔞','📵','🚦','🏖','🖥','📺','🐧','🐬','🦉','🍄','⛳️','🚴','🤑','👽','🤖','🎃', '👺', '👁', '🐶', '🐼','🐌', '👥']
-var city0 = "UNKNOWN";
-var org0 = "UNKNOWN";
-var isp0 = "UNKNOWN";
-var as0 = "UNKNOWN";
+var city0 = "xXx";
+var org0 = "xXx";
+var isp0 = "xXx";
+var as0 = "xXx";
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -56,7 +56,7 @@ var flags = new Map([[ "AC" , "🇦🇨" ] , [ "AF" , "🇦🇫" ] , [ "AI" , "�
 var body = $response.body;
 var obj = JSON.parse(body);
 var title =flags.get(obj['countryCode']) + ' '+ Owner_ValidCheck(obj['org']) + '@' + City_ValidCheck(obj['city']) ;
-var subtitle = ISP_ValidCheck(obj['isp']) + '|'+ AS_ValidCheck(obj['as']);
+var subtitle = ISP_ValidCheck(obj['isp']) + '|'+ AS_ValidCheck(obj['asname']);
 var ip = obj['query'];
 var description = 'IP:'+ obj['query'] + '\n' +'Owner:'+ obj['org'] + '\n' +'ISP:'+obj['isp'] + '\n'+'AS:'+ obj['as'] + '\n' +'Country:'+obj['country'] + '\n' +'Region:'+obj['regionName'] + '\n' +'City:'+obj['city'];
 $done({title, subtitle, ip, description});
